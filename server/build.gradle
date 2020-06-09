@@ -1,0 +1,9 @@
+jar {
+    manifest {
+        attributes("Implementation-Title": project.name, "Implementation-Version": version, "Main-Class": "ru.kami.server.ChatServer")
+    }
+}
+
+dependencies {
+    compile project(':network')
+}

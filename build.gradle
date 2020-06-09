@@ -1,0 +1,41 @@
+allprojects {
+    apply plugin: 'idea'
+}
+
+idea {
+    module {
+        excludeDirs += file(".idea")
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+
+    group 'ru.kami.focus'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'ch.qos.logback:logback-classic:1.2.3'
+        compile 'ch.qos.logback.contrib:logback-json-core:0.1.5'
+        compile 'ch.qos.logback:logback-core:1.2.3'
+        testImplementation'org.junit.jupiter:junit-jupiter-api:5.4.2'
+        testRuntime'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+        testCompileOnly 'org.projectlombok:lombok:1.18.12'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    }
+
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
